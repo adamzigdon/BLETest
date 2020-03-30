@@ -8,21 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		6602BF6B242A4A1B0089DACF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6602BF6A242A4A1B0089DACF /* AppDelegate.swift */; };
-		6602BF6D242A4A1B0089DACF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6602BF6C242A4A1B0089DACF /* ViewController.swift */; };
-		6602BF70242A4A1B0089DACF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6602BF6E242A4A1B0089DACF /* Main.storyboard */; };
+		6602BF6D242A4A1B0089DACF /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6602BF6C242A4A1B0089DACF /* BLEManager.swift */; };
 		6602BF72242A4A1D0089DACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6602BF71242A4A1D0089DACF /* Assets.xcassets */; };
 		6602BF75242A4A1D0089DACF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6602BF73242A4A1D0089DACF /* LaunchScreen.storyboard */; };
+		CBFEFF0F24329367003908FC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFEFF0E24329367003908FC /* MainView.swift */; };
+		CBFEFF532432A7F1003908FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFEFF522432A7F1003908FC /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6602BF67242A4A1B0089DACF /* BLETest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLETest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6602BF6A242A4A1B0089DACF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6602BF6C242A4A1B0089DACF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6602BF6F242A4A1B0089DACF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6602BF6C242A4A1B0089DACF /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		6602BF71242A4A1D0089DACF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6602BF74242A4A1D0089DACF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6602BF76242A4A1D0089DACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6602BF7D242A4AF50089DACF /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		CBFEFF0E24329367003908FC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CBFEFF522432A7F1003908FC /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				6602BF6A242A4A1B0089DACF /* AppDelegate.swift */,
-				6602BF6C242A4A1B0089DACF /* ViewController.swift */,
-				6602BF6E242A4A1B0089DACF /* Main.storyboard */,
+				CBFEFF522432A7F1003908FC /* SceneDelegate.swift */,
+				6602BF6C242A4A1B0089DACF /* BLEManager.swift */,
+				CBFEFF0E24329367003908FC /* MainView.swift */,
 				6602BF71242A4A1D0089DACF /* Assets.xcassets */,
 				6602BF73242A4A1D0089DACF /* LaunchScreen.storyboard */,
 				6602BF76242A4A1D0089DACF /* Info.plist */,
@@ -139,7 +142,6 @@
 			files = (
 				6602BF75242A4A1D0089DACF /* LaunchScreen.storyboard in Resources */,
 				6602BF72242A4A1D0089DACF /* Assets.xcassets in Resources */,
-				6602BF70242A4A1B0089DACF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,22 +152,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6602BF6D242A4A1B0089DACF /* ViewController.swift in Sources */,
+				6602BF6D242A4A1B0089DACF /* BLEManager.swift in Sources */,
+				CBFEFF0F24329367003908FC /* MainView.swift in Sources */,
 				6602BF6B242A4A1B0089DACF /* AppDelegate.swift in Sources */,
+				CBFEFF532432A7F1003908FC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6602BF6E242A4A1B0089DACF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6602BF6F242A4A1B0089DACF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6602BF73242A4A1D0089DACF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -228,7 +224,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -283,7 +279,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -298,13 +294,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z7NETA2DWM;
+				DEVELOPMENT_TEAM = VM4BNV87P3;
 				INFOPLIST_FILE = BLETest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = adamzigdon.BLETest;
+				PRODUCT_BUNDLE_IDENTIFIER = adamzigdon.BLETest.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -316,13 +312,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z7NETA2DWM;
+				DEVELOPMENT_TEAM = VM4BNV87P3;
 				INFOPLIST_FILE = BLETest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = adamzigdon.BLETest;
+				PRODUCT_BUNDLE_IDENTIFIER = adamzigdon.BLETest.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
