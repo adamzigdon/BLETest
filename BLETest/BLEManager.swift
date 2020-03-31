@@ -11,6 +11,7 @@ import CoreBluetooth
 import CoreLocation
 
 fileprivate let beaconUUID = UUID(uuidString: "7E5BF3C6-B093-4523-8CCE-B02AE0BC4C39")!
+fileprivate let beaconConstraint = CLBeaconIdentityConstraint(uuid: beaconUUID)
 
 class BleManager : NSObject, ObservableObject {
   @Published var stateDescription = "Initializing" {
@@ -33,24 +34,24 @@ class BleManager : NSObject, ObservableObject {
     locationManager = CLLocationManager()
     locationManager.requestAlwaysAuthorization()
     locationManager.allowsBackgroundLocationUpdates = true
-    locationManager!.pausesLocationUpdatesAutomatically = false
+    locationManager.pausesLocationUpdatesAutomatically = false
     locationManager.delegate = self
   }
+  fileprivate func startUpdatingLocation(_ manager: CLLocationManager) {
+    manager.startRangingBeacons(satisfying: beaconConstraint)
+    manager.startUpdatingLocation()
+  }
 
-  fileprivate func startScanning() {
-    stateDescription = "Scanning"
-    let region = CLBeaconRegion(uuid: beaconUUID , identifier: "MyBeacons")
-    locationManager.startMonitoring(for: region)
+  fileprivate func stopUpdatingLocation(_ manager: CLLocationManager) {
+    manager.stopUpdatingLocation()
+    manager.stopRangingBeacons(satisfying: beaconConstraint)
   }
 }
 
 extension BleManager: CBCentralManagerDelegate, CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
     stateDescription = "Entered Region"
-
-    let constraint = CLBeaconIdentityConstraint(uuid: UUID(uuidString: "7E5BF3C6-B093-4523-8CCE-B02AE0BC4C39")!)
-    locationManager.startRangingBeacons(satisfying: constraint)
-    manager.startUpdatingLocation()
+    startUpdatingLocation(manager)
   }
 
   func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
@@ -62,17 +63,19 @@ extension BleManager: CBCentralManagerDelegate, CLLocationManagerDelegate {
 
   func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
     stateDescription = "Exited Region"
-    manager.stopUpdatingLocation()
+    stopUpdatingLocation(manager)
   }
 
   func locationManager(_ manager: CLLocationManager, didFailRangingFor beaconConstraint: CLBeaconIdentityConstraint, error: Error) {
     stateDescription = "Failed Ranging"
-    manager.stopUpdatingLocation()
+    stopUpdatingLocation(manager)
   }
 
   func centralManagerDidUpdateState(_ central: CBCentralManager) {
-    if central.state == .poweredOn {
-      startScanning()
+    if centralManager.state == .poweredOn {
+      stateDescription = "Scanning"
+      let region = CLBeaconRegion(uuid: beaconUUID , identifier: "MyBeacons")
+      locationManager.startMonitoring(for: region)
     } else {
       stateDescription = "Bluetooth N/A"
     }
